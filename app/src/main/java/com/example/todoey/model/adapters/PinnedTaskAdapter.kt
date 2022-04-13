@@ -14,6 +14,7 @@ class PinnedTaskAdapter : RecyclerView.Adapter<PinnedTaskAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
+            // please try to use data binding
             LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false)
         )
     }
@@ -22,6 +23,8 @@ class PinnedTaskAdapter : RecyclerView.Adapter<PinnedTaskAdapter.ViewHolder>() {
         val task = pinnedTaskList[position]
         val view = holder.itemView
 
+        // move setting of this data inside view holder by making a new method inside view holder class
+        // please use data binding 
         view.cv_item_task.setCardBackgroundColor(Color.parseColor(task.color))
         view.tv_title.text = task.title
         view.tv_body.text = task.body
